@@ -29,7 +29,7 @@
             overflow: hidden;
         }
 
-        .hero::before 
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -286,7 +286,15 @@
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
         }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
 
         .gallery-item:hover {
             transform: translateY(-5px);
@@ -304,6 +312,49 @@
             font-size: 1rem;
             text-align: center;
             padding: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border-radius: 0;
+        }
+
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.05);
+        }
+
+        .gallery-image.loading {
+            background: linear-gradient(45deg, #f1f5f9, #e2e8f0);
+            position: relative;
+        }
+
+        .gallery-image.loading::after {
+            content: '🔄 Cargando imagen...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .gallery-image.error {
+            background: linear-gradient(45deg, #fee2e2, #fecaca);
+            color: #dc2626;
+        }
+
+        .gallery-image.error::after {
+            content: '❌ Error al cargar imagen';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
         }
 
         .gallery-content {
@@ -320,6 +371,7 @@
         .gallery-item-description {
             color: #64748b;
             font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         .back-btn {
@@ -335,12 +387,13 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .back-btn:hover {
             background: white;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         @keyframes float {
@@ -369,6 +422,13 @@
             0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
             40% { transform: translateX(-50%) translateY(-10px); }
             60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -434,7 +494,6 @@
                 <a href="https://wa.me/50763038617?text=Hola%2C%20estoy%20interesado%20en%20tus%20servicios" class="btn btn-secondary" id="contact-btn" target="_blank" rel="noopener noreferrer">Contáctame</a>
                 <button class="btn btn-gallery" id="gallery-btn">Galería</button>
             </div>
-
         </div>
 
         <div class="scroll-indicator">
@@ -445,71 +504,113 @@
     </section>
 
     <!-- Gallery Section -->
-<section class="gallery-section" id="gallery">
-  <button class="back-btn" id="back-btn">← Volver</button>
+    <section class="gallery-section" id="gallery">
+        <button class="back-btn" id="back-btn">← Volver</button>
 
-  <div class="gallery-container">
-    <div class="gallery-header">
-      <h2 class="gallery-title">Galería de Proyectos</h2>
-      <p class="gallery-subtitle">Explora algunos de mis diseños recientes.</p>
-    </div>
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h2 class="gallery-title">Galería de Proyectos</h2>
+                <p class="gallery-subtitle">Explora algunos de mis diseños recientes.</p>
+            </div>
 
-    <div class="gallery-grid" id="gallery-grid">
-
-      <div class="gallery-item">
-        <div class="gallery-image">
-          <img src="https://drive.google.com/uc?export=download&id=1FpHuSx3onY3xqg7GXFwtTQ2tN8f0sZZ-" alt="Diseño CRUD Dinámico" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Los elementos se cargan dinámicamente -->
+            </div>
         </div>
-        <div class="gallery-content">
-          <h3 class="gallery-item-title">Diseño de CRUD Dinámico</h3>
-          <p class="gallery-item-description">Interfaz para crear formularios reutilizables en React con validaciones dinámicas.</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gallery-image">
-          <img src="https://drive.google.com/uc?export=download&id=1b0fz0Uzi1DFJV3f8_N3ZrvzJxEjxfP_0" alt="Vista de eventos en caliente" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div class="gallery-content">
-          <h3 class="gallery-item-title">Vista de Eventos en Caliente</h3>
-          <p class="gallery-item-description">Visualización interactiva de eventos recientes en tiempo real con filtros por categoría.</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <div class="gallery-image">
-          <img src="https://drive.google.com/uc?export=download&id=10QPlzIfKriTKNDra7eRL5T0TRLo7iTn2" alt="Selección de vistas" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div class="gallery-content">
-          <h3 class="gallery-item-title">Selección de Vistas</h3>
-          <p class="gallery-item-description">Diseño para cambiar entre múltiples módulos administrativos desde un solo menú.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
     <script>
+        // Configuración de proyectos
+        const projects = [
+            {
+                title: "Diseño de CRUD Dinámico",
+                description: "Interfaz para crear formularios reutilizables en React con validaciones dinámicas.",
+                imageId: "1FpHuSx3onY3xqg7GXFwtTQ2tN8f0sZZ-"
+            },
+            {
+                title: "Vista de Eventos en Caliente",
+                description: "Visualización interactiva de eventos recientes en tiempo real con filtros por categoría.",
+                imageId: "1b0fz0Uzi1DFJV3f8_N3ZrvzJxEjxfP_0"
+            },
+            {
+                title: "Selección de Vistas",
+                description: "Diseño para cambiar entre múltiples módulos administrativos desde un solo menú.",
+                imageId: "10QPlzIfKriTKNDra7eRL5T0TRLo7iTn2"
+            }
+        ];
+
+        // Función para crear la URL correcta de Google Drive
+        function getGoogleDriveImageUrl(fileId) {
+            return `https://drive.google.com/uc?export=download&id=${fileId}`;
+        }
+
+        // Función para crear elemento de galería
+        function createGalleryItem(project) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            
+            const imageUrl = getGoogleDriveImageUrl(project.imageId);
+            
+            item.innerHTML = `
+                <div class="gallery-image loading" data-image-url="${imageUrl}">
+                    <img src="${imageUrl}" alt="${project.title}" onload="handleImageLoad(this)" onerror="handleImageError(this)" style="display: none;">
+                </div>
+                <div class="gallery-content">
+                    <h3 class="gallery-item-title">${project.title}</h3>
+                    <p class="gallery-item-description">${project.description}</p>
+                </div>
+            `;
+            
+            return item;
+        }
+
+        // Función para manejar carga exitosa de imagen
+        function handleImageLoad(img) {
+            const container = img.parentElement;
+            container.classList.remove('loading', 'error');
+            img.style.display = 'block';
+        }
+
+        // Función para manejar error de carga de imagen
+        function handleImageError(img) {
+            const container = img.parentElement;
+            container.classList.remove('loading');
+            container.classList.add('error');
+        }
+
+        // Función para cargar proyectos
+        function loadProjects() {
+            const galleryGrid = document.getElementById('gallery-grid');
+            
+            projects.forEach(project => {
+                const item = createGalleryItem(project);
+                galleryGrid.appendChild(item);
+            });
+        }
+
+        // Función para añadir proyectos dinámicamente
+        function addGalleryItem(title, description, imageId) {
+            const galleryGrid = document.getElementById('gallery-grid');
+            const project = { title, description, imageId };
+            const item = createGalleryItem(project);
+            galleryGrid.appendChild(item);
+        }
+
         // Navigation functionality
         const galleryBtn = document.getElementById('gallery-btn');
         const backBtn = document.getElementById('back-btn');
         const heroSection = document.getElementById('hero');
         const gallerySection = document.getElementById('gallery');
         
-        // Social links - Add your actual URLs here
-        const linkedinLink = document.getElementById('linkedin-link');
-        const githubLink = document.getElementById('github-link');
-        const emailLink = document.getElementById('email-link');
-        
-        // CTA buttons - Add your actual URLs here
-        const projectsBtn = document.getElementById('projects-btn');
-        const contactBtn = document.getElementById('contact-btn');
-        
         // Gallery navigation
         galleryBtn.addEventListener('click', () => {
             heroSection.style.display = 'none';
             gallerySection.classList.add('active');
+            
+            // Cargar proyectos si no se han cargado aún
+            if (document.getElementById('gallery-grid').children.length === 0) {
+                loadProjects();
+            }
         });
         
         backBtn.addEventListener('click', () => {
@@ -525,50 +626,25 @@
                 galleryBtn.click();
             }
         });
-        
 
+        // Manejo de teclas
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && gallerySection.classList.contains('active')) {
+                backBtn.click();
+            }
+        });
+
+        // Ejemplo de cómo añadir más proyectos:
+        // addGalleryItem('Nuevo Proyecto', 'Descripción del proyecto', 'TU_GOOGLE_DRIVE_FILE_ID');
         
-        // Function to add gallery items dynamically
-        function addGalleryItem(title, description, imageUrl) {
-            const galleryGrid = document.getElementById('gallery-grid');
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            
-            item.innerHTML = `
-                <div class="gallery-image">
-                    ${imageUrl ? `<img src="${imageUrl}" alt="${title}" style="width: 100%; height: 100%; object-fit: cover;">` : 
-                    `<span>📸 Añade tu captura de pantalla aquí<br><small>Usa un link de Google Drive</small></span>`}
-                </div>
-                <div class="gallery-content">
-                    <h3 class="gallery-item-title">${title}</h3>
-                    <p class="gallery-item-description">${description}</p>
-                </div>
-            `;
-            
-            galleryGrid.appendChild(item);
-        }
-        
-        // Example of how to add items:
-        // addGalleryItem('Mi App Web', 'Aplicación desarrollada con React y Node.js', 'https://drive.google.com/uc?id=YOUR_DRIVE_FILE_ID');
-        
-        // Performance optimization
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
+        // Preload crítico
+        window.addEventListener('load', () => {
+            // Precargar las primeras imágenes para mejor rendimiento
+            projects.slice(0, 2).forEach(project => {
+                const img = new Image();
+                img.src = getGoogleDriveImageUrl(project.imageId);
             });
-            
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(item);
-            });
-        }
+        });
     </script>
 </body>
 </html>
