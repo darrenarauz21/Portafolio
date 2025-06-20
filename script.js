@@ -20,6 +20,18 @@ const projects = [
     description: "Diseño para cambiar entre múltiples módulos administrativos desde un solo menú.",
     imageName: "Seleccion de vistas.png",
     techStack: "ReactJs, Material UI"
+  },
+    {
+    title: "Blog y Carrusel",
+    description: "Carrusel animado en la entrada del blog, ideal para mostrar noticias recientes.",
+    imageName: "carrusel.png",
+    techStack: "Django, HTML5, CSS"
+  },
+    {
+    title: "Barra de Menú desplegable",
+    description: "Menú superior con elementos ocultos que se muestran al interactuar, ideal para navegación compacta.",
+    imageName: "barradesplegar.png",
+    techStack: "Django, HTML5, CSS"
   }
 ];
 
