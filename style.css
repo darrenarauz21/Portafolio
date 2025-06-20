@@ -1,0 +1,259 @@
+/* Reset y fuentes base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #121212;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  text-align: center;
+  background: linear-gradient(160deg, #0f2027, #203a43, #2c5364);
+  position: relative;
+}
+
+.floating-shapes .shape {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-20px) }
+  100% { transform: translateY(0) }
+}
+
+.profile-image {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+}
+
+.description {
+  margin-top: 1rem;
+  max-width: 600px;
+  color: #bbb;
+}
+
+/* Botones */
+.cta-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background: #4caf50;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #45a045;
+}
+
+.btn-gallery {
+  background: #2196f3;
+  color: #fff;
+}
+
+.btn-gallery:hover {
+  background: #1e88e5;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-link svg {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+  transition: transform 0.2s ease;
+}
+
+.social-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* Galería */
+.gallery-section {
+  display: none;
+  padding: 4rem 1rem;
+  background-color: #181818;
+}
+
+.gallery-section.active {
+  display: block;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #2196f3;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-title {
+  font-size: 2rem;
+}
+
+.gallery-subtitle {
+  color: #aaa;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.gallery-item {
+  background: #1f1f1f;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-image {
+  position: relative;
+  background-color: #333;
+  height: 200px;
+  overflow: hidden;
+}
+
+.gallery-image.loading::after {
+  content: "Cargando...";
+  position: absolute;
+  color: #888;
+  font-size: 0.9rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gallery-image.error::after {
+  content: "Error al cargar imagen";
+  position: absolute;
+  color: #f44336;
+  font-size: 0.9rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.tech-stack {
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.gallery-content {
+  padding: 1rem;
+}
+
+.gallery-item-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-item-description {
+  font-size: 0.95rem;
+  color: #bbb;
+  margin-bottom: 0.5rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tech-tag {
+  background-color: #424242;
+  color: #fff;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .name {
+    font-size: 2rem;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+}
