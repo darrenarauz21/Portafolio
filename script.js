@@ -95,3 +95,49 @@ function loadGallery() {
 }
 
 window.addEventListener('DOMContentLoaded', loadGallery);
+
+const modal = document.getElementById('image-modal');
+const modalImage = document.getElementById('modal-image');
+const modalCloseBtn = document.getElementById('modal-close');
+
+// Función para abrir modal con la imagen clickeada
+function openModal(imageSrc, altText) {
+  modalImage.src = imageSrc;
+  modalImage.alt = altText || "Imagen ampliada";
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  modalCloseBtn.focus();
+}
+
+// Cerrar modal
+function closeModal() {
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  modalImage.src = '';
+}
+
+// Evento cerrar al botón
+modalCloseBtn.addEventListener('click', closeModal);
+
+// Cerrar modal al hacer clic fuera de la imagen (en el fondo)
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
+// Cerrar modal con tecla ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === "Escape" && modal.classList.contains('active')) {
+    closeModal();
+  }
+});
+
+// --- Aquí debes añadir eventos para abrir modal desde tus imágenes ---
+// Ejemplo para imágenes dentro de .gallery-grid
+document.querySelectorAll('.gallery-grid img').forEach(img => {
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', () => {
+    openModal(img.src, img.alt);
+  });
+});
