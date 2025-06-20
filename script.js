@@ -129,21 +129,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalImg = document.getElementById("modal-image");
   const modalClose = document.getElementById("modal-close");
 
-  // Suponiendo que las imágenes están dentro del #gallery-grid
   document.getElementById("gallery-grid").addEventListener("click", (e) => {
     const target = e.target;
-    if (target.tagName === "IMG") {
-      modalImg.src = target.src;
+    if (target.classList.contains("expand-btn")) {
+      const imageUrl = target.getAttribute("data-image");
+      modalImg.src = imageUrl;
       modal.classList.add("show");
     }
   });
 
   modalClose.addEventListener("click", () => {
     modal.classList.remove("show");
-    modalImg.src = ""; // Limpia imagen
+    modalImg.src = "";
   });
 
-  // Cierra al hacer clic fuera de la imagen
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.classList.remove("show");
