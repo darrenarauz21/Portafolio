@@ -13,13 +13,13 @@ const projects = [
     title: "Vista de Eventos en Caliente",
     description: "Visualización interactiva de eventos recientes en tiempo real con filtros por categoría.",
     imageName: "Eventos.png",
-    techStack: "ReactJs, Material UI"
+    techStack: "ReactJs, Material UI, CSS"
   },
   {
     title: "Selección de Vistas",
     description: "Diseño para cambiar entre múltiples módulos administrativos desde un solo menú.",
     imageName: "Seleccion de vistas.png",
-    techStack: "ReactJs, Material UI"
+    techStack: "ReactJs, Material UI, CSS"
   },
     {
     title: "Blog y Carrusel",
