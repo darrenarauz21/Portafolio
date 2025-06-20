@@ -7,19 +7,19 @@ const projects = [
     title: "Diseño de CRUD Dinámico",
     description: "Interfaz para crear formularios reutilizables en React con validaciones dinámicas.",
     imageName: "CrudDinamico.png",
-    techStack: "React, TypeScript, CSS Grid"
+    techStack: "ReactJs, Material UI, MaterialTable"
   },
   {
     title: "Vista de Eventos en Caliente",
     description: "Visualización interactiva de eventos recientes en tiempo real con filtros por categoría.",
     imageName: "Eventos.png",
-    techStack: "Vue.js, D3.js, WebSockets"
+    techStack: "ReactJs, Material UI"
   },
   {
     title: "Selección de Vistas",
     description: "Diseño para cambiar entre múltiples módulos administrativos desde un solo menú.",
     imageName: "Seleccion de vistas.png",
-    techStack: "Angular, Material UI, NgRx"
+    techStack: "ReactJs, Material UI"
   }
 ];
 
