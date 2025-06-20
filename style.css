@@ -538,76 +538,64 @@ body {
         grid-template-columns: 1fr;
     }
 }
-/* Modal fondo */
+/* Fondo difuminado del modal */
 .modal {
+  display: none; /* Oculto por defecto */
   position: fixed;
-  top: 0;
+  z-index: 1000;
   left: 0;
+  top: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  backdrop-filter: blur(6px); /* Difuminado */
   justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 1000;
+  align-items: center;
+  transition: opacity 0.3s ease;
 }
 
-/* Modal visible */
-.modal.active {
-  opacity: 1;
-  pointer-events: auto;
+/* Mostrar modal */
+.modal.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
 }
 
-/* Contenido modal con bordes suaves y sombra */
+/* Animación de aparición */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 .modal-content {
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: 15px;
+  background: white;
+  border-radius: 16px;
+  padding: 1rem;
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: zoomIn 0.3s ease;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  animation: scaleIn 0.4s ease forwards;
 }
 
-/* Animación apertura */
-@keyframes scaleIn {
-  from {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-/* Imagen dentro del modal */
 .modal-content img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 15px;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
 }
 
-/* Botón cerrar */
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 2rem;
-  background: transparent;
+  top: 0.5rem;
+  right: 0.8rem;
+  font-size: 1.5rem;
+  background: none;
   border: none;
   color: #333;
   cursor: pointer;
-  font-weight: bold;
-  transition: color 0.3s ease;
 }
-
-.modal-close:hover {
-  color: #764ba2;
-}
-
