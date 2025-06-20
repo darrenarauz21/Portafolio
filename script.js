@@ -96,6 +96,33 @@ function loadGallery() {
 
 window.addEventListener('DOMContentLoaded', loadGallery);
 //
+function createGalleryItem(project) {
+  const item = document.createElement('div');
+  item.className = 'gallery-item';
+
+  const imageUrl = getGithubImageUrl(project.imageName);
+
+  item.innerHTML = `
+    <div class="gallery-image loading">
+      <img src="${imageUrl}" alt="${project.title}" onload="handleImageLoad(this)" onerror="handleImageError(this)" style="display: none;" />
+      <div class="image-overlay">
+        <span class="tech-stack">${project.techStack || 'Desarrollo Web'}</span>
+        <button class="expand-btn" aria-label="Expandir imagen" data-image="${imageUrl}">🔍</button>
+      </div>
+    </div>
+    <div class="gallery-content">
+      <h3 class="gallery-item-title">${project.title}</h3>
+      <p class="gallery-item-description">${project.description}</p>
+      ${
+        project.techStack
+          ? `<div class="tech-tags">${project.techStack.split(', ').map(tech => `<span class="tech-tag">${tech}</span>`).join('')}`
+          : ''
+      }
+    </div>
+  `;
+
+  return item;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("image-modal");
