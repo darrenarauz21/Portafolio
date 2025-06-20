@@ -542,17 +542,16 @@ body {
 .modal {
   display: none; /* Oculto por defecto */
   position: fixed;
-  z-index: 1000;
-  left: 0;
+  z-index: 9999; /* Muy por encima del contenido */
   top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
-  backdrop-filter: blur(6px); /* Difuminado */
   justify-content: center;
   align-items: center;
-  transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro translúcido */
 }
+
 
 /* Mostrar modal */
 .modal.show {
