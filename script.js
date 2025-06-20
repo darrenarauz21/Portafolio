@@ -32,6 +32,12 @@ const projects = [
     description: "Menú superior con elementos ocultos que se muestran al interactuar, ideal para navegación compacta.",
     imageName: "barradesplegar.png",
     techStack: "Django, HTML5, CSS"
+  },
+      {
+    title: "Inicio de Sesión",
+    description: "Inicio de sesión minimalista y atractivo con figuras geometricas animadas.",
+    imageName: "loginphp.png",
+    techStack: "PHP, HTML5, CSS"
   }
 ];
 
