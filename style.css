@@ -612,16 +612,21 @@ body {
 }
 
 .expand-btn {
-  background: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
   border: none;
-  border-radius: 50%;
-  font-size: 1rem;
-  padding: 6px 10px;
+  border-radius: 30px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
 }
 
 .expand-btn:hover {
-  background: white;
+  background: linear-gradient(45deg, #764ba2, #667eea);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
-
