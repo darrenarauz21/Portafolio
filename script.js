@@ -3,6 +3,24 @@ function getGithubImageUrl(fileName) {
 }
 
 const projects = [
+    {
+    title: "Panel de Control",
+    description: "Vista limpia y ordenada con información útil para el usuario.",
+    imageName: "dashboard1.png",
+    techStack: "ReactJs, Material UI"
+  },
+    {
+    title: "Actividades Recientes",
+    description: "Seguimiento de entrada y salida del personal.",
+    imageName: "dashboard2.png",
+    techStack: "ReactJs, Material UI"
+  },
+      {
+    title: "Acciones rápidas",
+    description: "Botones de acciones rápidas.",
+    imageName: "accionesrap.png",
+    techStack: "ReactJs, Material UI"
+  },
   {
     title: "Diseño de CRUD Dinámico",
     description: "Interfaz para crear formularios reutilizables en React con validaciones dinámicas.",
