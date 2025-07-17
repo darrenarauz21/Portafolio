@@ -3,6 +3,12 @@ function getGithubImageUrl(fileName) {
 }
 
 const projects = [
+  {
+    title: "Altos del Dragón",
+    description: "Sitio Web - Cabañas",
+    imageName: "altos_del_dragon.png",
+    techStack: "Wordpress, CSS"
+  },
     {
     title: "Panel de Control",
     description: "Vista limpia y ordenada con información útil para el usuario.",
