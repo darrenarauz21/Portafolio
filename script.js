@@ -77,15 +77,15 @@ function createGalleryItem(project) {
       <img src="${imageUrl}" alt="${project.title}" onload="handleImageLoad(this)" onerror="handleImageError(this)" style="display: none;" />
       <div class="image-overlay">
         <span class="tech-stack">${project.techStack || 'Desarrollo Web'}</span>
+        <button class="expand-btn" aria-label="Expandir imagen" data-image="${imageUrl}">🔍</button>
       </div>
     </div>
     <div class="gallery-content">
       ${project.url
-  ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer">
-       <h3 class="gallery-item-title">${project.title}</h3>
-     </a>`
-  : `<h3 class="gallery-item-title">${project.title}</h3>`}
-
+        ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer">
+             <h3 class="gallery-item-title">${project.title}</h3>
+           </a>`
+        : `<h3 class="gallery-item-title">${project.title}</h3>`}
       <p class="gallery-item-description">${project.description}</p>
       ${
         project.techStack
