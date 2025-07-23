@@ -7,7 +7,8 @@ const projects = [
     title: "Altos del Dragón",
     description: "Sitio Web - Cabañas",
     imageName: "altos_del_dragon.png",
-    techStack: "Wordpress, CSS"
+    techStack: "Wordpress, CSS",
+    url: "https://altosdeldragon.com"
   },
     {
     title: "Panel de Control",
@@ -79,7 +80,12 @@ function createGalleryItem(project) {
       </div>
     </div>
     <div class="gallery-content">
-      <h3 class="gallery-item-title">${project.title}</h3>
+      ${project.url
+  ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer">
+       <h3 class="gallery-item-title">${project.title}</h3>
+     </a>`
+  : `<h3 class="gallery-item-title">${project.title}</h3>`}
+
       <p class="gallery-item-description">${project.description}</p>
       ${
         project.techStack
