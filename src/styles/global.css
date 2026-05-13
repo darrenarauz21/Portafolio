@@ -324,3 +324,184 @@ body::after {
   .portfolio-section { padding: 56px 0; }
   .footer-modern { flex-direction: column; align-items: flex-start; margin-bottom: 48px; }
 }
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .portfolio-layout,
+  .section-inner,
+  .hero-inner,
+  .footer-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+
+  .header-inner {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-title {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex !important;
+  }
+
+  .hero {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .hero-inner,
+  .section-inner,
+  .footer-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 11vw, 52px);
+    line-height: 1.02;
+  }
+
+  .hero-description {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .ant-btn {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .project-image-wrap {
+    height: 210px;
+  }
+
+  .project-content {
+    padding: 18px;
+  }
+
+  .project-title {
+    font-size: 22px !important;
+  }
+
+  .project-actions {
+    width: 100%;
+  }
+
+  .project-actions .ant-btn {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 30px !important;
+  }
+
+  .section-description {
+    font-size: 15px;
+  }
+
+  .tech-list,
+  .project-tags {
+    gap: 8px;
+  }
+
+  .footer {
+    padding-bottom: 40px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  .hero-inner,
+  .section-inner,
+  .footer-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-image-wrap {
+    height: 180px;
+  }
+
+  .section-title {
+    font-size: 26px !important;
+  }
+}
