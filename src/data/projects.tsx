@@ -36,7 +36,7 @@ export type ProjectSection = {
 };
 
 export const getGithubImageUrl = (fileName: string) =>
-  `https://raw.githubusercontent.com/darrenarauz21/Portafolio/main/images/${encodeURIComponent(fileName)}`;
+  `/images/${encodeURIComponent(fileName)}`;
 
 export const projectSections: ProjectSection[] = [
   {
