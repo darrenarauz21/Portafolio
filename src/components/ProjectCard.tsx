@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Card, Image, Space, Tag, Typography } from "antd";
 import { EyeOutlined, GithubOutlined, GlobalOutlined } from "@ant-design/icons";
 import type { Project } from "../data/projects";
-import { getGithubImageUrl } from "../data/projects";
+import { getImageUrl } from "../data/projects";
 
 const { Text, Title, Paragraph } = Typography;
 
