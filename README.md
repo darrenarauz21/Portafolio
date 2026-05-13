@@ -19,31 +19,6 @@ El portafolio usa imágenes desde:
 https://raw.githubusercontent.com/darrenarauz21/Portafolio/main/images/
 ```
 
-Asegúrate de tener estas imágenes en la carpeta `images` del repo `Portafolio`:
-
-```txt
-dashboard.png
-controles.png
-biblioteca.png
-configuracion.png
-correo.png
-api.png
-altos_del_dragon.png
-aveva.png
-madoka.png
-dashboard1.png
-dashboard2.png
-accionesrap.png
-CrudDinamico.png
-Eventos.png
-Seleccion de vistas.png
-carrusel.png
-barradesplegar.png
-loginphp.png
-```
-
-Si alguna imagen no existe, la tarjeta mostrará un fallback visual.
-
 ## Desarrollo local
 
 ```bash
