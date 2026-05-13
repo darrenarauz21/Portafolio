@@ -1,49 +1,45 @@
-# Portafolio Darren Araúz - React + Ant Design
+# Portafolio Darren Araúz
 
-Portafolio personal adaptado a React, Vite, TypeScript y Ant Design para desplegar en Vercel.
+Portafolio personal construido con React, Vite, TypeScript y Ant Design.
 
-## Contenido
+## Cambios incluidos
 
-- Sección SENSA v2 y proyectos relacionados.
-- Sección SENSA v1 separada.
-- Sección de proyectos web, incluyendo Altos del Dragón y AVEVA.
-- Sección de plugins y extensiones, incluyendo Madoka Scanner.
-- Sección de interfaces y prototipos.
-- Imágenes cargadas desde el repo `Portafolio/main/images`.
+- Diseño actualizado con secciones agrupadas por tipo de proyecto.
+- Sección de habilidades/stack.
+- Sección de contacto con los correos:
+  - plugnplaypty@gmail.com
+  - darren.arauz@gmail.com
+- Footer con mayor separación inferior.
+- Rutas de imágenes usando `/images/nombre.png` desde `public/images`.
+- Datos de proyectos en `src/data/projects.tsx`, porque contiene JSX para iconos.
 
-## Imágenes esperadas
+## Imágenes
 
-El portafolio usa imágenes desde:
+Coloca las imágenes en:
 
 ```txt
-https://raw.githubusercontent.com/darrenarauz21/Portafolio/main/images/
+public/images/
 ```
 
-## Desarrollo local
+Ejemplo:
+
+```txt
+public/images/aveva.png
+public/images/dashboard.png
+public/images/api.png
+public/images/madoka.png
+```
+
+## Comandos
 
 ```bash
 npm install
 npm run dev
-```
-
-## Build
-
-```bash
 npm run build
 ```
 
 ## Deploy en Vercel
 
-Framework preset: `Vite`
-
-Build command:
-
-```bash
-npm run build
-```
-
-Output directory:
-
-```txt
-dist
-```
+Framework: Vite
+Build command: `npm run build`
+Output directory: `dist`

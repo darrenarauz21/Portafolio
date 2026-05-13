@@ -10,11 +10,12 @@ export default function Footer() {
       <div>
         <strong>Darren Araúz</strong>
         <Text>Portafolio Full Stack · React · Django · Sistemas empresariales</Text>
+        <Text className="footer-mails">{profileLinks.primaryEmailText} · {profileLinks.secondaryEmailText}</Text>
       </div>
       <Space>
         <Button shape="circle" href={profileLinks.linkedin} target="_blank" icon={<LinkedinOutlined />} />
         <Button shape="circle" href={profileLinks.github} target="_blank" icon={<GithubOutlined />} />
-        <Button shape="circle" href={profileLinks.email} icon={<MailOutlined />} />
+        <Button shape="circle" href={profileLinks.primaryEmail} icon={<MailOutlined />} />
       </Space>
     </footer>
   );

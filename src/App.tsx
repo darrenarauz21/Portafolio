@@ -3,7 +3,9 @@ import "antd/dist/reset.css";
 import "./styles/global.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import SkillsSection from "./components/SkillsSection";
 import ProjectSection from "./components/ProjectSection";
+import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import { projectSections } from "./data/projects";
 
@@ -34,9 +36,11 @@ export default function App() {
         <Navbar />
         <Hero />
         <main className="main-content">
+          <SkillsSection />
           {projectSections.map((section) => (
             <ProjectSection section={section} key={section.id} />
           ))}
+          <ContactSection />
         </main>
         <Footer />
       </div>

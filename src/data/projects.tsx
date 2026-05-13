@@ -35,17 +35,16 @@ export type ProjectSection = {
   projects: Project[];
 };
 
-export const getImageUrl = (fileName: string) =>
-  `/images/${encodeURIComponent(fileName)}`;
+export const getImageUrl = (fileName: string) => `/images/${encodeURIComponent(fileName)}`;
 
 export const projectSections: ProjectSection[] = [
   {
     id: "sensa",
-    label: "SENSA",
+    label: "SENSA v2",
     kicker: "Ecosistema principal",
     title: "SENSA v2 y documentación técnica",
     description:
-      "Proyectos relacionados con el sistema de control de acceso empresarial: plataforma, arquitectura, documentación visual, infraestructura y experiencia de operación.",
+      "Sistema empresarial agrupado con sus módulos, documentación técnica, arquitectura, paneles operativos y recursos relacionados.",
     projects: [
       {
         id: "sensa-v2",
@@ -315,7 +314,10 @@ export const profileLinks = {
   whatsapp: "https://wa.me/50763038617",
   linkedin: "https://www.linkedin.com/in/darrenarauz/",
   github: "https://github.com/darrenarauz21/",
-  email: "mailto:darren.arauz@gmail.com",
+  primaryEmail: "mailto:plugnplaypty@gmail.com",
+  secondaryEmail: "mailto:darren.arauz@gmail.com",
+  primaryEmailText: "plugnplaypty@gmail.com",
+  secondaryEmailText: "darren.arauz@gmail.com",
 };
 
 export const stats = [
@@ -323,4 +325,11 @@ export const stats = [
   { label: "Stack principal", value: "Full Stack" },
   { label: "Deploy", value: "Vercel" },
   { label: "Backend", value: "Django" },
+];
+
+export const skillGroups = [
+  { title: "Frontend", items: ["React", "TypeScript", "Ant Design", "Vite", "Responsive UI"] },
+  { title: "Backend", items: ["Django", "DRF", "PostgreSQL", "JWT", "WebSockets"] },
+  { title: "Arquitectura", items: ["ERD", "Datos dinámicos", "Workflows", "Multi-tenant", "APIs REST"] },
+  { title: "Deploy", items: ["Vercel", "GitHub", "Daphne", "Redis", "Windows Server"] },
 ];

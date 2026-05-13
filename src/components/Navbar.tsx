@@ -13,7 +13,11 @@ export default function Navbar() {
       <Anchor
         direction="horizontal"
         className="desktop-anchor"
-        items={projectSections.map((section) => ({ key: section.id, href: `#${section.id}`, title: section.label }))}
+        items={[
+          { key: "habilidades", href: "#habilidades", title: "Stack" },
+          ...projectSections.map((section) => ({ key: section.id, href: `#${section.id}`, title: section.label })),
+          { key: "contacto", href: "#contacto", title: "Contacto" },
+        ]}
       />
 
       <Button href={profileLinks.github} target="_blank" icon={<GithubOutlined />}>

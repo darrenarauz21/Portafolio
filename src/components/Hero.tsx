@@ -22,8 +22,11 @@ export default function Hero() {
         </Paragraph>
 
         <Space wrap className="hero-actions">
-          <Button type="primary" size="large" href={profileLinks.whatsapp} target="_blank" icon={<WhatsAppOutlined />}>
+          <Button type="primary" size="large" href="#contacto" icon={<MailOutlined />}>
             Contáctame
+          </Button>
+          <Button size="large" href={profileLinks.whatsapp} target="_blank" icon={<WhatsAppOutlined />}>
+            WhatsApp
           </Button>
           <Button size="large" href="#sensa">
             Ver proyectos
@@ -42,7 +45,7 @@ export default function Hero() {
         <Space className="hero-social" size={12}>
           <Button shape="circle" href={profileLinks.linkedin} target="_blank" icon={<LinkedinOutlined />} />
           <Button shape="circle" href={profileLinks.github} target="_blank" icon={<GithubOutlined />} />
-          <Button shape="circle" href={profileLinks.email} icon={<MailOutlined />} />
+          <Button shape="circle" href={profileLinks.primaryEmail} icon={<MailOutlined />} />
         </Space>
       </div>
     </section>
