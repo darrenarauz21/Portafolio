@@ -12,7 +12,7 @@ type Props = {
 
 export default function ProjectCard({ project }: Props) {
   const [imageError, setImageError] = useState(false);
-  const imageUrl = getGithubImageUrl(project.imageName);
+  const imageUrl = getImageUrl(project.imageName)
 
   return (
     <Card className={`project-card ${project.featured ? "project-card-featured" : ""}`} bordered={false}>

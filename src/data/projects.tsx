@@ -35,7 +35,7 @@ export type ProjectSection = {
   projects: Project[];
 };
 
-export const getGithubImageUrl = (fileName: string) =>
+export const getImageUrl = (fileName: string) =>
   `/images/${encodeURIComponent(fileName)}`;
 
 export const projectSections: ProjectSection[] = [
