@@ -223,7 +223,7 @@ export const projectSections: ProjectSection[] = [
         eyebrow: "Extensión de navegador",
         description:
           "Extensión para Edge, Chrome y Firefox que analiza cada archivo descargado mediante un servidor local y Google Magika para detectar el tipo real del archivo antes de abrirlo.",
-        imageName: "madoka.png",
+        imageName: "observabilidad.png",
         techStack: ["JavaScript", "Python", "Flask", "Magika", "Browser Extension"],
         githubUrl: "https://github.com/darrenarauz21/Madoka",
         status: "Repositorio",
