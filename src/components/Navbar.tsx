@@ -1,15 +1,12 @@
-import { useMemo, useState, type MouseEvent } from "react";
-import { Button, Drawer, Grid, Space } from "antd";
+import { useMemo, useState } from "react";
+import { Anchor, Button, Drawer, Grid, Space } from "antd";
+import type { AnchorProps } from "antd";
 import { GithubOutlined, MenuOutlined } from "@ant-design/icons";
 import { projectSections, profileLinks } from "../data/projects";
 
 const { useBreakpoint } = Grid;
 
-type NavItem = {
-  key: string;
-  href: string;
-  title: string;
-};
+type NavItem = NonNullable<AnchorProps["items"]>[number];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -33,39 +30,41 @@ export default function Navbar() {
     [navItems]
   );
 
-  const navigateTo = (href: string) => (event: MouseEvent<HTMLElement>) => {
-    event.preventDefault();
-
+  const scrollToHash = (href: string) => {
     const targetId = href.replace("#", "");
     const target = document.getElementById(targetId);
 
     if (!target) {
       window.location.hash = href;
-      setOpen(false);
       return;
     }
 
     target.scrollIntoView({ behavior: "smooth", block: "start" });
     window.history.pushState(null, "", href);
+  };
+
+  const handleAnchorClick: AnchorProps["onClick"] = (event, link) => {
+    event.preventDefault();
+    scrollToHash(link.href);
     setOpen(false);
   };
 
   return (
     <header className="navbar-modern">
-      <a className="brand" href="#inicio" aria-label="Ir al inicio" onClick={navigateTo("#inicio")}>
+      <a
+        className="brand"
+        href="#inicio"
+        aria-label="Ir al inicio"
+        onClick={(event) => {
+          event.preventDefault();
+          scrollToHash("#inicio");
+        }}
+      >
         <span>DA</span>
         <strong>Darren Araúz</strong>
       </a>
 
-      {isDesktop && (
-        <nav className="desktop-nav" aria-label="Navegación principal">
-          {navItems.map((item) => (
-            <button type="button" className="nav-link-button" onClick={navigateTo(item.href)} key={item.key}>
-              {item.title}
-            </button>
-          ))}
-        </nav>
-      )}
+      {isDesktop && <Anchor direction="horizontal" className="desktop-anchor" items={navItems} onClick={handleAnchorClick} />}
 
       <Space size={10} className="navbar-actions">
         {isDesktop && (
@@ -86,15 +85,14 @@ export default function Navbar() {
         width={320}
         className="mobile-drawer"
       >
-        <nav className="mobile-nav" aria-label="Navegación móvil">
-          {drawerItems.map((item) => (
-            <button type="button" className="mobile-nav-link" onClick={navigateTo(item.href)} key={item.key}>
-              {item.title}
-            </button>
-          ))}
-        </nav>
+        <Anchor
+          className="mobile-anchor"
+          direction="vertical"
+          items={drawerItems}
+          onClick={handleAnchorClick}
+        />
         <div className="drawer-actions">
-          <Button block type="primary" href="#contacto" onClick={navigateTo("#contacto")}>
+          <Button block type="primary" href="#contacto" onClick={(event) => { event.preventDefault(); scrollToHash("#contacto"); setOpen(false); }}>
             Contáctame
           </Button>
           <Button block href={profileLinks.github} target="_blank" icon={<GithubOutlined />}>
