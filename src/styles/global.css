@@ -95,61 +95,16 @@ body::after {
   background: linear-gradient(135deg, var(--primary), var(--accent));
 }
 .brand strong { overflow: hidden; text-overflow: ellipsis; }
-.desktop-nav {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  overflow: hidden;
-}
-.nav-link-button {
-  appearance: none;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 1;
-  padding: 10px 9px;
-  white-space: nowrap;
-  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-}
-.nav-link-button:hover,
-.nav-link-button:focus-visible {
-  color: var(--text);
-  background: rgba(79, 123, 255, 0.13);
-  outline: none;
-}
-.nav-link-button:active { transform: translateY(1px); }
+.desktop-anchor { flex: 1; display: flex; justify-content: center; min-width: 0; }
+.desktop-anchor .ant-anchor { gap: 0; min-width: 0; }
+.desktop-anchor .ant-anchor-link { padding-inline: 5px !important; }
+.desktop-anchor .ant-anchor-link-title { color: var(--muted) !important; font-size: 13px; white-space: nowrap; }
 .navbar-actions { flex-shrink: 0; }
 .mobile-menu-button { display: inline-flex; }
 .mobile-drawer .ant-drawer-content { background: #0b1020; }
 .mobile-drawer .ant-drawer-header { border-color: rgba(148, 163, 184, 0.14); }
-.mobile-nav {
-  display: grid;
-  gap: 8px;
-}
-.mobile-nav-link {
-  width: 100%;
-  appearance: none;
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text);
-  cursor: pointer;
-  font-size: 16px;
-  padding: 13px 14px;
-  text-align: left;
-}
-.mobile-nav-link:hover,
-.mobile-nav-link:focus-visible {
-  border-color: rgba(79, 123, 255, 0.35);
-  background: rgba(79, 123, 255, 0.12);
-  outline: none;
-}
+.mobile-anchor .ant-anchor-link { padding: 10px 0 !important; }
+.mobile-anchor .ant-anchor-link-title { color: var(--text) !important; font-size: 16px; }
 .drawer-actions { display: grid; gap: 12px; margin-top: 28px; }
 
 .hero-modern {
@@ -287,7 +242,7 @@ body::after {
 @keyframes float { from { transform: translateY(0) scale(1); } to { transform: translateY(28px) scale(1.08); } }
 
 @media (max-width: 1199px) {
-  .nav-link-button { font-size: 12px; padding-inline: 6px; }
+  .desktop-anchor .ant-anchor-link-title { font-size: 12px; }
   .navbar-modern { width: calc(100% - 28px); }
   .hero-modern { padding-top: 132px; }
 }
